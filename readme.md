@@ -12,7 +12,7 @@
 - [Website](http://bangjs.org)
 - [GitHub](https://github.com/bangjs/bangjs/)
 - [API docs](https://github.com/bangjs/bangjs/blob/master/doc/build/bang/index.md)
-- Used in production by [Nouncy](http://nouncy.com)
+- Used in production at [Nouncy](http://nouncy.com)
 
 *Let us [know](https://github.com/tastejs/todomvc/issues) if you discover anything worth sharing.*
 
@@ -31,7 +31,7 @@ This little app showcases much of what's good about BangJS.
 
 * **Keeps your code maintainable and scalable due to inherent composability**
 
-  Notice how most of the implementation is basically a collection of observables, composed using FRP principles. Because every observable defines its own behavior and its own behavior only, we insulate ourselves from spaghetti smell.
+  Notice how most of the implementation is basically a collection of observables, composed using FRP principles. Because every observable defines its own behavior and its own behavior only, we insulate ourselves from spaghetti creep.
 
 
 ## Credit
