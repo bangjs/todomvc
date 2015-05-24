@@ -1,6 +1,3 @@
-(function (window) {
-	'use strict';
+/* global angular */
 
-	// Your starting point. Enjoy the ride!
-
-})(window);
+angular.module('todomvc', ['bang']);

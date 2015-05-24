@@ -1,19 +1,39 @@
-# TodoMVC App Template
+# BangJS • [TodoMVC](http://todomvc.com)
 
-> Template used for creating [TodoMVC](http://todomvc.com) apps
+> BangJS is Bacon-flavored Angular. Program watertight web app user interface behavior with [AngularJS](https://angularjs.org) and [Bacon.js](https://baconjs.github.io).
 
-![](https://github.com/tastejs/todomvc-app-css/raw/master/screenshot.png)
+> Enjoy everything that’s good about [functional reactive programming](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754) with all the benefits of a mature and vibrant front-end framework ecosystem.
 
-
-## Getting started
-
-- Read the [Application Specification](https://github.com/tastejs/todomvc/blob/master/app-spec.md) before touching the template.
-
-- Delete this file and rename `app-readme.md` to `readme.md` and fill it out.
-
-- Clone this repo and install the dependencies with [npm](https://npmjs.com) by running: `npm install`.
+> _[BangJS - bangjs.org](http://bangjs.org)_
 
 
-## License
+## Resources
 
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" rel="dct:type">work</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://sindresorhus.com" property="cc:attributionName" rel="cc:attributionURL">TasteJS</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.en_US">Creative Commons Attribution 4.0 International License</a>.
+- [Website](http://bangjs.org)
+- [GitHub](https://github.com/bangjs/bangjs/)
+- [API docs](https://github.com/bangjs/bangjs/blob/master/doc/build/bang/index.md)
+- Used in production by [Nouncy](http://nouncy.com)
+
+*Let us [know](https://github.com/tastejs/todomvc/issues) if you discover anything worth sharing.*
+
+
+## Implementation
+
+This little app showcases much of what's good about BangJS.
+
+* **Makes support for asynchronous logic the default**
+
+  Notice how the storage provider has been setup to support real-time client-server interaction out of the box. This is the _obvious_ approach as opposed to something you need to get out of your way for.
+
+* **Allows you to focus on business logic instead of managing state**
+
+  Notice how there is virtually *no mutable state*, which means less bookkeeping and less superficial bugs to waste time on. Instead work on uncovering your application logic and expressing it in the concisest possible way. Notice how few lines of code our implementation needs in comparison to many others.
+
+* **Keeps your code maintainable and scalable due to inherent composability**
+
+  Notice how most of the implementation is basically a collection of observables, composed using FRP principles. Because every observable defines its own behavior and its own behavior only, we insulate ourselves from spaghetti smell.
+
+
+## Credit
+
+Created by [Tim Molendijk](http://twitter.com/timmolendijk/).
