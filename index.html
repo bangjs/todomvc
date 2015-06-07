@@ -9,33 +9,33 @@
 		<style>[ng-cloak] { display: none; }</style>
 	</head>
 	<body ng-app="todomvc">
-		<section ng-controller="todosController" class="todoapp">
+		<section ng-controller="todos" class="todoapp">
 			<header class="header">
 				<h1>todos</h1>
-				<form ng-submit="add({ title: input.addTitle })">
-					<input ng-model="input.addTitle" class="new-todo" placeholder="What needs to be done?" autofocus>
+				<form ng-submit="add({ title: input.titleAdd })">
+					<input ng-model="input.titleAdd" class="new-todo" placeholder="What needs to be done?" autofocus>
 				</form>
 			</header>
-			<section ng-show="todos.all.length" ng-cloak class="main">
-				<input ng-model="input.allCompleted" ng-change="save(todos.all, { completed: input.allCompleted })" class="toggle-all" type="checkbox">
+			<section ng-show="items.all.length" ng-cloak class="main">
+				<input ng-model="input.allCompleted" ng-change="save(items.all, { completed: input.allCompleted })" class="toggle-all" type="checkbox">
 				<label for="toggle-all">Mark all as complete</label>
 				<ul class="todo-list">
-					<li ng-repeat="todo in todos[status]" ng-class="{completed: todo.completed, editing: editing === todo}">
+					<li ng-repeat="item in items[status]" ng-class="{completed: item.completed, editing: editing === item}">
 						<div class="view">
-							<input ng-model="todo.completed" ng-change="save(todo)" class="toggle" type="checkbox">
-							<label ng-dblclick="edit(todo)">{{todo.title}}</label>
-							<button class="destroy" ng-click="destroy(todo)"></button>
+							<input ng-model="item.completed" ng-change="save(item)" class="toggle" type="checkbox">
+							<label ng-dblclick="edit(item)">{{item.title}}</label>
+							<button class="destroy" ng-click="destroy(item)"></button>
 						</div>
-						<form ng-submit="save(editing, { title: input.editTitle })">
-							<input ng-model="input.editTitle" todo-focus="editing === todo" ng-blur="save(editing, { title: input.editTitle })" todo-escape="edit(null)" class="edit">
+						<form ng-submit="save(editing, { title: input.titleEdit })">
+							<input ng-model="input.titleEdit" todo-focus="editing === item" ng-blur="save(editing, { title: input.titleEdit })" todo-escape="edit(null)" class="edit">
 						</form>
 					</li>
 				</ul>
 			</section>
-			<footer ng-show="todos.all.length" ng-cloak class="footer">
+			<footer ng-show="items.all.length" ng-cloak class="footer">
 				<span class="todo-count">
-					<strong>{{todos.active.length}}</strong>
-					<ng-pluralize count="todos.active.length" when="{one: 'item', other: 'items'}"></ng-pluralize> left
+					<strong>{{items.active.length}}</strong>
+					<ng-pluralize count="items.active.length" when="{one: 'item', other: 'items'}"></ng-pluralize> left
 				</span>
 				<ul class="filters">
 					<li>
@@ -48,7 +48,7 @@
 						<a ng-class="{selected: status === 'completed'}" href="#/completed">Completed</a>
 					</li>
 				</ul>
-				<button ng-click="destroy(todos.completed)" ng-show="todos.completed.length" ng-cloak class="clear-completed">Clear completed</button>
+				<button ng-click="destroy(items.completed)" ng-show="items.completed.length" ng-cloak class="clear-completed">Clear completed</button>
 			</footer>
 		</section>
 		<footer class="info">
@@ -61,8 +61,8 @@
 		<script src="node_modules/baconjs/dist/Bacon.js"></script>
 		<script src="node_modules/bangjs/dist/bang.js"></script>
 		<script src="js/app.js"></script>
-		<script src="js/storage.js"></script>
+		<script src="js/store.js"></script>
 		<script src="js/directives.js"></script>
-		<script src="js/controller.js"></script>
+		<script src="js/todos.js"></script>
 	</body>
 </html>

@@ -1,6 +1,6 @@
 # BangJS • [TodoMVC](http://todomvc.com)
 
-> BangJS is Bacon-flavored Angular. Program watertight web app user interface behavior with [AngularJS](https://angularjs.org) and [Bacon.js](https://baconjs.github.io).
+> BangJS in Bacon-flavored Angular. Program watertight web-based user interface behavior with [AngularJS](https://angularjs.org/) and [Bacon.js](https://baconjs.github.io/).
 
 > Enjoy everything that’s good about [functional reactive programming](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754) with all the benefits of a mature and vibrant front-end framework ecosystem.
 
@@ -11,7 +11,7 @@
 
 - [Website](http://bangjs.org)
 - [GitHub](https://github.com/bangjs/bangjs/)
-- [API docs](https://github.com/bangjs/bangjs/blob/master/doc/build/bang/index.md)
+- [API docs](https://github.com/bangjs/bangjs/blob/master/doc/build/bang/bang.md)
 - Used in production at [Nouncy](http://nouncy.com)
 
 *Let us [know](https://github.com/tastejs/todomvc/issues) if you discover anything worth sharing.*
