@@ -1,7 +1,3 @@
-/**
- * Directive that places focus on the element it is applied to when the
- * expression it binds to evaluates to true
- */
 angular.module('todomvc').directive('todoFocus', function ($timeout) { 'use strict';
 	
 	return function (scope, elem, attrs) {
@@ -15,10 +11,6 @@ angular.module('todomvc').directive('todoFocus', function ($timeout) { 'use stri
 	
 });
 
-/**
- * Directive that executes an expression when the element it is applied to gets
- * an `escape` keydown event.
- */
 angular.module('todomvc').directive('todoEscape', function () { 'use strict';
 	
 	var ESCAPE_KEY = 27;

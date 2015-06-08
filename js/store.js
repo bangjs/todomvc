@@ -29,10 +29,8 @@ bang.component(this, {
 	}),
 	
 	update: bang.stream.function(function (items, data) {
-		if (!items)
-			items = [];
-		if (!angular.isArray(items))
-			items = [items];
+		if (!items) items = [];
+		if (!angular.isArray(items)) items = [items];
 		
 		items.map(function (item) {
 			return angular.extend(item, data);
@@ -42,10 +40,8 @@ bang.component(this, {
 	}),
 	
 	delete: bang.stream.function(function (items) {
-		if (!items)
-			items = [];
-		if (!angular.isArray(items))
-			items = [items];
+		if (!items) items = [];
+		if (!angular.isArray(items)) items = [items];
 		
 		return items;
 	})
