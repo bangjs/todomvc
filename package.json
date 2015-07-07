@@ -3,7 +3,7 @@
   "dependencies": {
     "angular": "^1.4.0",
     "baconjs": "~0.7.61",
-    "bangjs": "~0.2.1",
+    "bangjs": "~0.3.0",
     "todomvc-app-css": "^2.0.0",
     "todomvc-common": "^1.0.0"
   }
