@@ -4,31 +4,38 @@ var KEY = 'todos-bangjs';
 
 bang.component(this, {
 	
-	create: bang.stream.function(function (data) {
+	create: bang.stream.method(function (data) {
 		return angular.extend({ completed: false }, data);
 	}),
 	
-	read: bang.property.expose(function () {
-		var initial = angular.fromJson($window.localStorage.getItem(KEY) || '[]');
-		return this.create.merge(this.delete).
-			scan(initial, function (current, change) {
-				if (!angular.isArray(change))
-					current.push(change);
-				else
-					change.forEach(function (item) {
-						current.splice(current.indexOf(item), 1);
-					});
-				return current;
-			}).
-			flatMapLatest(function (value) {
-				return this.update.map(value).startWith(value);
-			}.bind(this)).
-			doAction(function (value) {
-				$window.localStorage.setItem(KEY, angular.toJson(value));
+	read: bang.property.expose(function (sink, me) {
+		
+		var value = angular.fromJson($window.localStorage.getItem(KEY) || '[]');
+		sink(value);
+		
+		this.create.onValue(function (item) {
+			value.push(item);
+			sink(value);
+		});
+		
+		this.update.onValue(function () {
+			sink(value);
+		});
+		
+		this.delete.onValue(function (items) {
+			items.forEach(function (item) {
+				value.splice(value.indexOf(item), 1);
 			});
+			sink(value);
+		});
+		
+		me.onValue(function (v) {
+			$window.localStorage.setItem(KEY, angular.toJson(v));
+		});
+		
 	}),
 	
-	update: bang.stream.function(function (items, data) {
+	update: bang.stream.method(function (items, data) {
 		if (!items)
 			items = [];
 		if (!angular.isArray(items))
@@ -41,7 +48,7 @@ bang.component(this, {
 		return items;
 	}),
 	
-	delete: bang.stream.function(function (items) {
+	delete: bang.stream.method(function (items) {
 		if (!items)
 			items = [];
 		if (!angular.isArray(items))

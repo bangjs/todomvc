@@ -1,5 +1,8 @@
 angular.module('todomvc').controller('todos', function ($scope, $location, Bacon, bang, store) { 'use strict';
 
+$scope.toString = function () {
+	return 'todos';
+};
 bang.component($scope, {
 	
 	status: bang.property.digest(function () {
@@ -33,12 +36,12 @@ bang.component($scope, {
 		
 	},
 	
-	add: bang.stream.function(function (data) {
+	add: bang.stream.method(function (data) {
 		return data && 'title' in data && !data.title ? null :
 			Bacon.fromPromise(store.create(data)); 
 	}),
 	
-	edit: bang.stream.function(angular.identity),
+	edit: bang.stream.method(angular.identity),
 	
 	editing: bang.property.digest(function () {
 		return this.edit.merge(
@@ -46,7 +49,7 @@ bang.component($scope, {
 		).startWith(null);
 	}),
 	
-	save: bang.stream.function(function (items, data) {
+	save: bang.stream.method(function (items, data) {
 		return Bacon.fromPromise(
 			data && 'title' in data && !data.title ?
 				store.delete(items) :
@@ -54,7 +57,7 @@ bang.component($scope, {
 		);
 	}),
 	
-	destroy: bang.stream.function(function (items) {
+	destroy: bang.stream.method(function (items) {
 		return Bacon.fromPromise(store.delete(items));
 	}),
 	
